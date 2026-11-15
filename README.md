@@ -12,6 +12,8 @@ dim a light, set the volume of a speaker, move blinds, …
 - Fully parametric OpenSCAD enclosure, ready-to-print STLs included
 - Zigbee2MQTT external converter included
 
+Print files and photos are also on [MakerWorld](https://makerworld.com/en/models/3617982-zigbee-rotary-knob).
+
 ## Bill of materials
 
 | Part | Note |
@@ -49,6 +51,9 @@ Pins can be changed in [firmware/src/config.h](firmware/src/config.h). The strap
   direction flips randomly. If the knob turns the wrong way, toggle `INVERT_ROTATION` in `config.h`.
 - **OUT** and **PGO** on the AS5600 stay unconnected, as does **DOUT** on the ring.
 - Put the capacitor and the 330 Ω resistor close to the ring.
+- GPIO 2 and 3 (ADC capable) are kept free for voltage dividers (battery voltage and USB detection,
+  for a later battery version). **Reading these dividers is not implemented in the firmware yet**,
+  so you can leave the resistors out for now.
 
 ## Usage
 
@@ -161,6 +166,7 @@ esptool.py --chip esp32c6 --port /dev/ttyACM0 erase_region 0x3EB000 0x4000
 ## 3D printing
 
 Ready-to-print STLs are in [stl/](stl/), already rotated into print orientation, no supports needed.
+A ready-made print project is available on [MakerWorld](https://makerworld.com/en/models/3617982-zigbee-rotary-knob).
 
 | Part | Material | Note |
 |---|---|---|
